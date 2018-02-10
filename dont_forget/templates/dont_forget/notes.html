@@ -1,0 +1,15 @@
+{% extends 'dont_forget/base.html' %}
+
+{% block content %}
+
+<p>All Notes</p>
+
+<ul>
+    {% for topic in topics %}
+        <li><a href = "{% url 'dont_forget:note' note.id %}">{{note}}</a></li>
+    {% empty %}
+        <li>No notes have been added yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
