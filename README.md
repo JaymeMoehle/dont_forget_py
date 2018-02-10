@@ -1,7 +1,7 @@
-<b>Overview</b>
+<b>Overview:</b>
 Personal note keeper that can be used on mobile or desktop and with Amazon Alexa. Will use Amazon Web Services(AWS) to        put it online.
 
-<b>Features</b>
+<b>Features:</b>
 
 <i>User Login</i>: User will be able to create account, and log in to the application.
 
@@ -13,11 +13,12 @@ Personal note keeper that can be used on mobile or desktop and with Amazon Alexa
 
 <i>Stretch Goal</i>: Use Local Storage in web page when internet is down, then update server when it connects again.
 
-<b>Technologies</b>
-*HTML
-*CSS
-*Django
-*Python
-*AWS
-*Amazon Alexa
+<b>Technologies:</b>
+    HTML
+    CSS
+    Pythoh
+    Django
+    Bootstrap
+    AWS
+    Amazon Alexa
 
