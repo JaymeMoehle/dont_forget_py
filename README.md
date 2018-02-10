@@ -14,11 +14,11 @@ Personal note keeper that can be used on mobile or desktop and with Amazon Alexa
 <i>Stretch Goal</i>: Use Local Storage in web page when internet is down, then update server when it connects again.
 
 <b>Technologies:</b>
-    HTML
-    CSS
-    Pythoh
-    Django
-    Bootstrap
-    AWS
-    Amazon Alexa
+HTML-
+CSS-
+Python-
+Django-
+Bootstrap-
+AWS-
+Amazon Alexa
 
