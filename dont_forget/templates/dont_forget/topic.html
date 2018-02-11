@@ -1,0 +1,21 @@
+{% extends 'dont_forget/base.html' %}
+
+{% block content %}
+
+<p>Topic: {{topic}}</p>
+<p>Entries:</p>
+<p><a href = "{% url 'dont_forget:new_topic' topic.id %}">Add a new entry:</a></p>
+<ul>
+    {% for entry in entries %}
+    <li>
+        <p>{{entry.created_on|date:"D d M Y"}}</p>
+        <p>{{entry.text|linebreaks}}</p>
+    </li>
+    {% empty %}
+    <li>There are no entries to this topic.</li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock content %}

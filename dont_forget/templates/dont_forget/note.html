@@ -3,18 +3,16 @@
 {% block content %}
 
 <p>Note: {{note}}</p>
-<p>Entries:</p>
+<p><a href = "{% url 'dont_forget:new_note' note.id %}">Add to note:</a></p>
 <ul>
-    {% for entry in entries %}
+    {% for NoteEntry in NoteEntries %}
     <li>
-        <p>{{entry.date_added|date: "M d, Y H:i'}}</p>
-        <p>{{entry.text|linebreaks}}</p>
+        <p>{{NoteEntry.text|linebreaks}}</p>
     </li>
     {% empty %}
-    <li>There are no entries to this note.</li>
+    <li>There are no entries to this topic.</li>
     {% endfor %}
 </ul>
-
 
 
 {% endblock content %}

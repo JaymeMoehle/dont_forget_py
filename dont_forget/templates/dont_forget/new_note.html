@@ -1,0 +1,14 @@
+{% extends "dont_forget/base.html" %}
+
+{% block content %}
+
+
+<p>Add a new note:</p>
+<form action = "{% url 'dont_forget:new_note' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name ="submit">Add note</button>
+</form>
+
+
+{% endblock content%}
