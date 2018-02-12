@@ -4,7 +4,7 @@
 
 <p>Topic: {{topic}}</p>
 <p>Entries:</p>
-<p><a href = "{% url 'dont_forget:new_topic' topic.id %}">Add a new entry:</a></p>
+<p><a href = "{% url 'dont_forget:new_entry' topic.id %}">Add a new entry:</a></p>
 <ul>
     {% for entry in entries %}
     <li>
@@ -12,7 +12,7 @@
         <p>{{entry.text|linebreaks}}</p>
     </li>
     {% empty %}
-    <li>There are no entries to this topic.</li>
+    <li>There are no entries for this topic.</li>
     {% endfor %}
 </ul>
 

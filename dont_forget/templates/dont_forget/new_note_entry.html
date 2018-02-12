@@ -4,11 +4,11 @@
 
 <p><a href = "{% url 'dont_forget:note' note.id %}">{{note}}</a></p>
 
-<p>Add a new note:</p>
-<form action = "{% url 'dont_forget:new_note' note.id %}" method="post">
+<p>Add a new item:</p>
+<form action = "{% url 'dont_forget:new_note_entry' note.id %}" method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <button name ="submit">Add note</button>
+    <button name ="submit">Add item</button>
 </form>
 
 

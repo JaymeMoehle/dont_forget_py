@@ -5,7 +5,6 @@ from . import views
 
 app_name = 'dont_forget'
 urlpatterns = [
-    #Homepage
     re_path(r'^$', views.index, name='index'),
 
     re_path(r'^topics/$', views.topics, name='topics'),
@@ -16,6 +15,6 @@ urlpatterns = [
     re_path(r'^notes/$', views.notes, name='notes'),
     re_path(r'^notes/(?P<note_id>\d+)/$', views.note, name='note'),
     re_path(r'^new_note/$', views.new_note, name='new_note'),
-    re_path(r'^new__note_entry/(?P<note_id>\d+)/$', views.new_note_entry, name='new_note_entry'),
+    re_path(r'^new_note_entry/(?P<note_id>\d+)/$', views.new_note_entry, name='new_note_entry'),
 
 ]

@@ -28,4 +28,4 @@ class NoteEntryForm(forms.ModelForm):
         model = NoteEntry
         fields = ['text']
         labels = {'text': ''}
-        widgets = {'text': forms.Textarea(attrs={'cols': 2})}
+        widgets = {'text': forms.Textarea(attrs={'cols': 80})}
