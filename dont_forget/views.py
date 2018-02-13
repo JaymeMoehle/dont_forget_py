@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 
-from . models import Topic, Note
+from . models import Topic, Entry, Note, NoteEntry
 from . forms import TopicForm, NoteForm, EntryForm, NoteEntryForm
 
 
@@ -43,8 +43,6 @@ def new_topic(request):
     return render(request, 'dont_forget/new_topic.html', context)
 
 
-
-
 def new_entry(request, topic_id):
     """Add new entry for a topic"""
     topic = Topic.objects.get(id=topic_id)
@@ -64,6 +62,20 @@ def new_entry(request, topic_id):
     return render(request, 'dont_forget/new_entry.html', context)
 
 
+def edit_entry(request, entry_id):
+    """Edit and existing topic entry"""
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+
+    if request.method != 'POST':
+        form = EntryForm(instance=entry)
+    else:
+        form = EntryForm(instance=entry, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('dont_forget:topic', args=[topic.id]))
+    context = {'entry': entry, 'topic': topic, 'form': form }
+    return render(request, 'dont_forget/edit_entry.html', context)
 
 
 #Note section of the app
@@ -79,8 +91,8 @@ def notes(request):
 def note(request, note_id):
     '''Show a single note and all of its content'''
     note = Note.objects.get(id=note_id)
-    NoteEntries = note.noteentry_set.all()
-    context = {'note': note, 'NoteEntries': NoteEntries}
+    note_entries = note.noteentry_set.all()
+    context = {'note': note, 'note_entries': note_entries}
     return render(request, 'dont_forget/note.html', context)
 
 
@@ -115,3 +127,19 @@ def new_note_entry(request, note_id):
 
     context = {'note': note, 'form': form}
     return render(request, 'dont_forget/new_note_entry.html', context)
+
+
+def edit_note_entry(request, note_entry_id):
+    """Edit and existing topic entry"""
+    note_entry = NoteEntry.objects.get(id=note_entry_id)
+    note = note_entry.note
+
+    if request.method != 'POST':
+        form = NoteEntryForm(instance=note_entry)
+    else:
+        form = NoteEntryForm(instance=note_entry, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('dont_forget:note', args=[note.id]))
+    context = {'note_entry': note_entry, 'note': note, 'form': form }
+    return render(request, 'dont_forget/edit_note_entry.html', context)

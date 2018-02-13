@@ -10,6 +10,7 @@
     <li>
         <p>{{entry.created_on|date:"D d M Y"}}</p>
         <p>{{entry.text|linebreaks}}</p>
+        <p><a href="{% url 'dont_forget:edit_entry' entry.id %}">Edit</a></p>
     </li>
     {% empty %}
     <li>There are no entries for this topic.</li>

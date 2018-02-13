@@ -5,13 +5,17 @@
 <p>Note: {{note}}</p>
 <p><a href = "{% url 'dont_forget:new_note_entry' note.id %}">Add item to note:</a></p>
 <ul>
-    {% for NoteEntry in NoteEntries %}
+    {% for note_entry in note_entries %}
     <li>
-        <p>{{NoteEntry.text|linebreaks}}</p>
+        <p>{{note_entry.text|linebreaks}}</p>
+        <p><a href="{% url 'dont_forget:edit_note_entry' note_entry.id %}">Edit</a></p>
+
     </li>
     {% empty %}
     <li>There are no items for this note.</li>
     {% endfor %}
+
+
 </ul>
 
 
