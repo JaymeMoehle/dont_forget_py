@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<p>All Topics</p>
+<p>All Subjects</p>
 
 <ul>
     {% for topic in topics %}
@@ -12,6 +12,6 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'dont_forget:new_topic' %}">Add a new topic:</a>
+<a href="{% url 'dont_forget:new_topic' %}">Add a new subject:</a>
 
 {% endblock content %}
