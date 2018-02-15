@@ -17,8 +17,11 @@ Personal note keeper that can be used on mobile or desktop and with Amazon Alexa
 HTML -
 CSS -
 Python -
+JavaScript -
 Django -
+Node.js -
 Bootstrap -
+Vue.js -
 AWS -
 Amazon Alexa
 
