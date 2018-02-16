@@ -1,11 +1,17 @@
 
-
 <p>
     <a href = "{% url 'dont_forget:index' %}">Don't Forget</a> -
-    <a href = "{% url 'dont_forget:topics' %}">Learning</a>
+    <a href = "{% url 'dont_forget:topics' %}">Subjects</a> -
 
+    {% if user.is_authenticated %}
+    Hello, {{user.username}}!
+    <a href="{% url 'users:logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'users:register' %}">Register</a> -
+    <a href="{% url 'users:login' %}">Login</a>
+    {% endif %}
 </p>
 
 
-
-{% block content %} {% endblock content %}
+{% block content %}
+{% endblock content %}
