@@ -1,19 +1,31 @@
 {% extends 'dont_forget/base.html' %}
 
-{% block content %}
+{% block header %}
+<h3>{{topic}}</h3>
+{% endblock header %}
 
-<p>Topic: {{topic}}</p>
-<p>Entries:</p>
+
+
+
+{% block content %}
 <p><a href = "{% url 'dont_forget:new_entry' topic.id %}">Add a new entry:</a></p>
 <ul>
     {% for entry in entries %}
-    <li>
-        <p>{{entry.created_on|date:"D d M Y"}}</p>
-        <p>{{entry.text|linebreaks}}</p>
-        <p><a href="{% url 'dont_forget:edit_entry' entry.id %}">Edit</a></p>
-    </li>
+    <div class="'panel panel-default">
+        <div class="panel-heading">
+            <h5>{{entry.created_on|date:"D d M Y"}}
+            <small>
+                <a href="{% url 'dont_forget:edit_entry' entry.id %}">Edit</a>
+            </small>
+                </h5>
+        </div>
+        <div class="panel-body">
+            {{entry.text|linebreaks}}
+        </div>
+    </div>  <!--panel-->
+
     {% empty %}
-    <li>There are no entries for this topic.</li>
+    <li>There are no entries for this subject yet.</li>
     {% endfor %}
 </ul>
 

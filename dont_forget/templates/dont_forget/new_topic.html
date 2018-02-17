@@ -1,15 +1,21 @@
-{% extends "dont_forget/base.html" %}
+{% extends 'dont_forget/base.html' %}
+{% load bootstrap3 %}
+
+{% block header %}
+<h4>Add a new subject:</h4>
+{% endblock header %}
+
 
 {% block content %}
-
-
-<p>Add a new subject:</p>
-<form action = "{% url 'dont_forget:new_topic' %}" method="post">
+<form method="post" action="{% url 'dont_forget:new_topic' %}" class="form">
     {% csrf_token %}
-    {{form.as_p}}
-    <button name ="submit">Add</button>
+    {% bootstrap_form form %}
+
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">Add subject</button>
+    {% endbuttons %}
+
 </form>
 
+{% endblock content %}
 
-
-{% endblock content%}

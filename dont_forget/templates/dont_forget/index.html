@@ -1,7 +1,15 @@
 {% extends "dont_forget/base.html" %}
 
+
+{% block header %}
+<div class="'jumbotron">
+    <h2>Don't Forget is a note taking application to keep track of learning subjects and day-to-day items. </h2>
+</div>
+{% endblock header %}
+
 {% block content %}
 
-<p>Don't Forget is a note taking application to keep track of learning subjects, interesting ideas, and day-to-day items. </p>
-
+<h3>
+    <a href="{% url 'users:register' %}">For a personal subject log and note keeper register an account.</a>
+</h3>
 {% endblock content %}

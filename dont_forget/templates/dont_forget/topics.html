@@ -1,17 +1,26 @@
 {% extends 'dont_forget/base.html' %}
 
-{% block content %}
+{% block header %}
+<h3> All Subjects</h3>
+{% endblock header %}
 
-<p>All Subjects</p>
+
+
+
+{% block content %}
 
 <ul>
     {% for topic in topics %}
-        <li><a href = "{% url 'dont_forget:topic' topic.id %}">{{topic}}</a></li>
+        <li>
+            <h4>
+            <a href = "{% url 'dont_forget:topic' topic.id %}">{{topic}}</a>
+            </h4>
+        </li>
     {% empty %}
-        <li>No topics have been added yet.</li>
+        <li>No subjects have been added yet.</li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'dont_forget:new_topic' %}">Add a new subject:</a>
+<h5><a href="{% url 'dont_forget:new_topic' %}">Add a new subject</a></h5>
 
 {% endblock content %}
