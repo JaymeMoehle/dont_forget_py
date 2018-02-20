@@ -1,0 +1,62 @@
+ #navbar-links li a{
+   color: #312e38;
+
+   }
+
+#navbar-name{
+    color: #312e38;
+    }
+
+#navbar-main{
+   background-color: #a095b2;
+   margin-bottom: 20px;
+ }
+
+.jumbotron{
+    margin-top: 20px;
+    color: #312e38;
+
+}
+
+#register{
+    color: #312e38;
+}
+
+
+#body{
+    background-color: #faf9fc;
+
+}
+
+
+#sub-button{
+    background-color: #948aa8;
+    color: #1d1d1e;
+}
+
+
+#links{
+  color: #312e38;
+}
+
+#add-subject{
+    color: #8b51ff;
+}
+
+
+#add-entry{
+     color: #8b51ff;
+}
+
+
+#topic-links{
+    color: #312e38;
+    list-style-type: none;
+
+}
+
+
+#edit-entry{
+   color: #8b51ff;
+
+}

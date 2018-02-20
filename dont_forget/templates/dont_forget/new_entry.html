@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<p><a href = "{% url 'dont_forget:topic' topic.id %}">{{topic}}</a></p>
+<p><h4><a href="{% url 'dont_forget:topic' topic.id %}" role="button" id="links">{{topic}}</a></h4></p>
 
-<p>Add a new entry:</p>
+<p id="links">Add a new entry:</p>
 <form action = "{% url 'dont_forget:new_entry' topic.id %}" method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <button name ="submit">Add entry</button>
+    <button name="submit" class="btn btn-default" id="sub-button">Add entry</button>
 </form>
 
 

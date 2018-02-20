@@ -1,5 +1,5 @@
 {% extends 'dont_forget/base.html' %}
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 
 {% block header %}
 <h4>Add a new subject:</h4>
@@ -12,7 +12,7 @@
     {% bootstrap_form form %}
 
     {% buttons %}
-    <button name="submit" class="btn btn-primary">Add subject</button>
+    <button name="submit" class="btn btn-default" id="sub-button">Add subject</button>
     {% endbuttons %}
 
 </form>

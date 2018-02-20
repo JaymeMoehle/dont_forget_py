@@ -4,23 +4,24 @@
 <h3> All Subjects</h3>
 {% endblock header %}
 
-
-
-
 {% block content %}
 
 <ul>
+     <div class="card bg-light mb3" style="width: 60rem;">
+        <div class="card-body">
     {% for topic in topics %}
-        <li>
+    <li>
             <h4>
-            <a href = "{% url 'dont_forget:topic' topic.id %}">{{topic}}</a>
+            <a href = "{% url 'dont_forget:topic' topic.id %}" id="topic-links">{{topic}}</a>
             </h4>
         </li>
     {% empty %}
         <li>No subjects have been added yet.</li>
     {% endfor %}
-</ul>
+        </div>
+     </div>
+    </ul>
 
-<h5><a href="{% url 'dont_forget:new_topic' %}">Add a new subject</a></h5>
+<h5><a href="{% url 'dont_forget:new_topic' %}" id="add-subject">Add a new subject</a></h5>
 
 {% endblock content %}
