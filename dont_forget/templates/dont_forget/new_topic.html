@@ -1,5 +1,5 @@
 {% extends 'dont_forget/base.html' %}
-{% load bootstrap4 %}
+{% load bootstrap3 %}
 
 {% block header %}
 <h4>Add a new subject:</h4>
@@ -8,7 +8,7 @@
 
 {% block content %}
 <form method="post" action="{% url 'dont_forget:new_topic' %}" class="form">
-    {% csrf_token %}
+  
     {% bootstrap_form form %}
 
     {% buttons %}
@@ -18,4 +18,3 @@
 </form>
 
 {% endblock content %}
-

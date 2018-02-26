@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
+from rest_framework import routers
+from rest_framework.documentation import include_docs_urls
+from dont_forget.views import note, NoteViewSet
 
+
+router = routers.DefaultRouter()
+router.register(r'note', NoteViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
     path(r'', include('dont_forget.urls', namespace='dont_forget')),
+    path(r'api/', include(router.urls)),
 
 
-]
+  ]

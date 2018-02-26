@@ -29,3 +29,11 @@ class Entry(models.Model):
         return self.text[:50] + "..."
 
 
+class Note(models.Model):
+    '''An way to create a new note in the Don't Forget app'''
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    created_on = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text

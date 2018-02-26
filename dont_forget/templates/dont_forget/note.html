@@ -1,0 +1,36 @@
+{% extends 'dont_forget/base.html' %}
+
+
+{% block header %}
+<h5>Remember:</h5>
+{% endblock header %}
+
+{% block content %}
+
+<div id="noteapp">
+    <div class="container">
+      <form class="form-group">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" v.model:title="note.title">
+                <label class="form-label" for="text">Content</label>
+                <textarea class="form-control" v.model:text="note.text"></textarea>
+                <button class="btn btn-secondary" type="submit" v-on:click="addNote">Submit</button>
+               </form>
+              </div>
+
+
+       <div class="container">
+         <div v-for="anote in note" class= "note-container">
+         <div class="col-sm-4">
+                <h3>[[note.title]]</h3>
+              </div>
+              <div class="col-sm-4">
+              <p>[[note.text]]</p>
+              <button class="close" v-on:click="deleteNote"><span class="glyphicon glyphicon-trash pull-right"></span></button>
+          </div>
+      </div>
+   </div>
+</div>
+
+
+{% endblock content %}
