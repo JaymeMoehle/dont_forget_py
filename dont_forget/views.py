@@ -1,11 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 
-from . models import Topic, Entry
-from . forms import TopicForm, EntryForm
+from . models import Topic, Entry, Note
+from . forms import TopicForm, EntryForm, NoteForm
 
 
 #Topic section of the app
@@ -87,13 +91,78 @@ def edit_entry(request, entry_id):
     return render(request, 'dont_forget/edit_entry.html', context)
 
 
+@login_required
+def delete_topic(request, topic_id):
+    topic = get_object_or_404(Topic, pk=topic_id).delete()
+    return redirect('dont_forget:topics')
+
+
+@login_required
+def note(request):
+
+    note_list = Note.objects.filter(owner=request.user).order_by('id')
+    form = NoteForm()
+    context={'note_list': note_list, 'form': form}
+
+    return render(request, 'dont_forget/note.html', context)
+
+
+@require_POST
+@login_required
+def addNote(request):
+    form = NoteForm(data=request.POST)
+
+    if form.is_valid():
+        new_note = Note(text=request.POST['text'])
+        new_note.owner=request.user
+        new_note.save()
+
+    return redirect('dont_forget:note')
+
+@login_required
+def complete_note(request, note_id):
+    note = Note.objects.get(pk=note_id)
+    note.complete = True
+    note.save()
+
+    return redirect('dont_forget:note')
+
+@login_required
+def delete_note(request):
+    Note.objects.filter(complete__exact=True).delete()
+
+
+    return redirect('dont_forget:note')
+
+@login_required
+def delete_all_notes(request):
+    Note.objects.all().delete()
+
+    return redirect('dont_forget:note')
+
+
+def logout_view(request):
+    """Log out the user"""
+    logout(request)
+    return HttpResponseRedirect(reverse('dont_forget:index'))
 
 
 
+def register(request):
+    """Register a new user"""
+    if request.method != 'POST':
+        form = UserCreationForm()
+    else:
+        form = UserCreationForm(data=request.POST)
 
+        if form.isvalid():
+            new_user = form.save()
+            authenticated_user = authenticate(username = new_user.username, password=request.POST['password1'])
+            login(request, authenticated_user)
+            return HttpResponseRedirect(reverse('dont_forget:index'))
 
-
-
+    context = {'form': form}
+    return render(request, 'users/register.html', context)
 
 
 

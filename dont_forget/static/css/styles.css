@@ -1,62 +1,134 @@
  #navbar-links li a{
-   color: #312e38;
+   color: #0f0f11;
+   text-decoration: none;
 
    }
 
 #navbar-name{
-    color: #312e38;
+    color: #0f0f11;
+    text-decoration: none;
     }
 
 #navbar-main{
-   background-color: #a095b2;
+   background-color: #9097af;
    margin-bottom: 20px;
  }
 
 .jumbotron{
     margin-top: 20px;
-    color: #312e38;
 
 }
 
 #register{
-    color: #312e38;
+    color: #0f0f11;
+    text-decoration: none;
 }
 
 
 #body{
-    background-color: #faf9fc;
-
+    background-color: #ffffff;
 }
 
 
-#sub-button{
-    background-color: #948aa8;
-    color: #1d1d1e;
-}
-
-
-#links{
-  color: #312e38;
+#edit-links{
+  color: #0f0f11;
+  text-decoration: none;
 }
 
 #add-subject{
-    color: #8b51ff;
+    color: #9097af;
+    text-decoration: none;
+    border: 1px solid;
 }
 
 
 #add-entry{
-     color: #8b51ff;
+     color: #9097af;
+     text-decoration: none;
+     border: 1px solid;
 }
 
 
 #topic-links{
-    color: #312e38;
-    list-style-type: none;
+    color: #0f0f11;
+    text-decoration: none;
+
 
 }
 
 
-#edit-entry{
-   color: #8b51ff;
+
+
+#topic-entry{
+    color: #0f0f11;
+    text-decoration: none;
 
 }
+
+
+#no-bullet{
+ list-style-type: none;
+
+}
+
+
+
+
+
+
+
+#wrapper{
+ border: 5px, solid, #9097af;
+ border-radius: 20px;
+
+}
+
+
+.container-fluid{
+    border: 5px, solid, #9097af;
+	border-radius: 20px;
+}
+
+
+#note-content{
+	background-color: #f7f7f9;
+	border: 2px, solid, #9097af;
+	border-radius: 15px !important;
+	padding: 25px;
+}
+
+#content > h2 {
+	font-size: 20px;
+	text-align: center;
+	padding-top: 0;
+}
+
+#delete-note{
+    color: #9097af;
+    text-decoration: none;
+    border: 1px solid;
+}
+
+
+
+#add-btn{
+    background-color: #9097af;
+}
+
+
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+#note-complete{
+	background-color: #9097af;
+	color:  #0f0f11;
+}
+
+.list-group-item {
+	color:  #0f0f11;
+	text-decoration: none;
+}
+

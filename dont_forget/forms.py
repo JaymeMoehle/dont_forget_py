@@ -15,3 +15,6 @@ class EntryForm(forms.ModelForm):
         widgets = {'text': forms.Textarea(attrs={'cols': 80})}
 
 
+class NoteForm(forms.Form):
+    text = forms.CharField(max_length=50, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Enter a note e.g. Pet the cat', 'aria-label' : 'Note', 'aria-describedby' : 'add-btn'}))

@@ -5,28 +5,26 @@
 {% endblock header %}
 
 
-
-
 {% block content %}
-<p><a href = "{% url 'dont_forget:new_entry' topic.id %}" id="add-entry">Add a new entry:</a></p>
+
 <ul>
     {% for entry in entries %}
-    <div class="card bg-light mb3" style="width: 60rem;">
-        <div class="card-header">
-            <h5>{{entry.created_on|date:"D d M Y"}}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{{entry.created_on|date:"D d M Y"}}
             <small>
-                <a href="{% url 'dont_forget:edit_entry' entry.id %}" id="edit-entry">Edit</a>
+                <a class="btn btn-default btn-xs" href="{% url 'dont_forget:edit_entry' entry.id %}" id="add-entry">Edit</a>
             </small>
-                </h5>
+          </h4>
         </div>
-        <div class="card-body">
+        <div class="panel-body">
             {{entry.text|linebreaks}}
-        </div>
-    </div>  <!--panel-->
 
-    {% empty %}
-    <li>There are no entries for this subject yet.</li>
+        </div>
+
+    </div>  <!--panel-->
     {% endfor %}
+    <p><a class="btn btn-default btn-sm" href = "{% url 'dont_forget:new_entry' topic.id %}" id="add-entry">Add a new entry</a></p>
 </ul>
 
 

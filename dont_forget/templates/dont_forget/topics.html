@@ -7,21 +7,21 @@
 {% block content %}
 
 <ul>
-     <div class="card bg-light mb3" style="width: 60rem;">
-        <div class="card-body">
     {% for topic in topics %}
-    <li>
-            <h4>
-            <a href = "{% url 'dont_forget:topic' topic.id %}" id="topic-links">{{topic}}</a>
-            </h4>
-        </li>
-    {% empty %}
-        <li>No subjects have been added yet.</li>
-    {% endfor %}
+    <li id="no-bullet">
+         <div class="panel panel-default">
+             <div class="panel-body">
+                 <h5><a href = "{% url 'dont_forget:topic' topic.id %}" id="topic-links">{{topic}}</a></h5><a href="{% url 'dont_forget:delete_topic' topic.id %}"><button type="button" class="btn btn-default btn-xs pull-right" id="add-subject"><i class="glyphicon glyphicon-trash"></i>DELETE</button></a>
+
+    </li>
+
+        {% endfor %}
+       <h5><a class="btn btn-default" href="{% url 'dont_forget:new_topic' %}" id="add-subject">Add a new subject</a></h5>
         </div>
+
      </div>
     </ul>
 
-<h5><a href="{% url 'dont_forget:new_topic' %}" id="add-subject">Add a new subject</a></h5>
+
 
 {% endblock content %}

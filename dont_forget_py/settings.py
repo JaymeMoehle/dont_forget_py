@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dont_forget',
     'users',
-    'bootstrap4',
+    'bootstrap3',
 ]
 
 
@@ -130,6 +130,6 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/users/login'
 
 
-BOOTSTRAP4 = {
+BOOTSTRAP3 = {
     'include_jquery': True,
 }
