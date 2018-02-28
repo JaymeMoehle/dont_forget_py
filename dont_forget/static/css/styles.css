@@ -16,6 +16,7 @@
 
 .jumbotron{
     margin-top: 20px;
+    background-color: #f7f7f9 !important;
 
 }
 
@@ -57,31 +58,28 @@
 }
 
 
-
-
 #topic-entry{
     color: #0f0f11;
     text-decoration: none;
 
 }
 
+#topic-panel{
+    max-width: 400px;
+
+}
 
 #no-bullet{
  list-style-type: none;
 
 }
 
-
-
-
-
-
-
-#wrapper{
- border: 5px, solid, #9097af;
- border-radius: 20px;
+#panel-heading{
+    background-color:  #f7f7f9 !important;
 
 }
+
+/*------------notes styling---------------- */
 
 
 .container-fluid{
@@ -92,7 +90,7 @@
 
 #note-content{
 	background-color: #f7f7f9;
-	border: 2px, solid, #9097af;
+	border: 2px, solid, #9097af !important;
 	border-radius: 15px !important;
 	padding: 25px;
 }

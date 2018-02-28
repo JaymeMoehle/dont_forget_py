@@ -10,7 +10,7 @@
 <ul>
     {% for entry in entries %}
     <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading" id="panel-heading">
             <h4>{{entry.created_on|date:"D d M Y"}}
             <small>
                 <a class="btn btn-default btn-xs" href="{% url 'dont_forget:edit_entry' entry.id %}" id="add-entry">Edit</a>

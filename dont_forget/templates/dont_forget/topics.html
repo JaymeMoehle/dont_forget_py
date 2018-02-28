@@ -5,21 +5,17 @@
 {% endblock header %}
 
 {% block content %}
-
 <ul>
     {% for topic in topics %}
-    <li id="no-bullet">
-         <div class="panel panel-default">
+        <li id="no-bullet">
+         <div class="panel panel-default" id="topic-panel">
              <div class="panel-body">
                  <h5><a href = "{% url 'dont_forget:topic' topic.id %}" id="topic-links">{{topic}}</a></h5><a href="{% url 'dont_forget:delete_topic' topic.id %}"><button type="button" class="btn btn-default btn-xs pull-right" id="add-subject"><i class="glyphicon glyphicon-trash"></i>DELETE</button></a>
-
-    </li>
-
-        {% endfor %}
-       <h5><a class="btn btn-default" href="{% url 'dont_forget:new_topic' %}" id="add-subject">Add a new subject</a></h5>
+        </li>
+    {% endfor %}
+         <h5><a class="btn btn-default" href="{% url 'dont_forget:new_topic' %}" id="add-subject">Add a new subject</a></h5>
         </div>
-
-     </div>
+    </div>
     </ul>
 
 
